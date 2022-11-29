@@ -18,4 +18,4 @@ def save_result(result_dic, path=''):
         writer = csv.DictWriter(file, result_dic.keys())
         writer.writeheader()
         writer.writerow(result_dic)
-        
+

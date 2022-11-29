@@ -36,7 +36,7 @@ def get_args():
                         help='fix random seed')
     args = parser.parse_args()
     model_arch = args.models
-    parser.add_argument('-f', '--path', default=f'/scratch/wo64/ez3336/data/{model_arch}/', type=str,
+    parser.add_argument('-f', '--path', default=f'/scratch/wo64/ez3336/data/parallel_training/{model_arch}/', type=str,
                         help='save data to path')
     args = parser.parse_args()
     return args
@@ -88,7 +88,7 @@ def main():
                     loss=tf.keras.losses.binary_crossentropy,
                     metrics=[tf.keras.metrics.AUC(curve="PR", num_thresholds=1001, name="pr_auc"),
                     dice_coef])
-##                    tf.keras.metrics.BinaryIoU([1], threshold=0.5)])
+                    tf.keras.metrics.BinaryIoU([1], threshold=0.5)])
 
     # print model summary
     model.summary()
